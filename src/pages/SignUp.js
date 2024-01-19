@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 function SignUp() {
-
+    
 
     const handleSubmit=(e)=>{
       e.preventDefault();

@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import LoginPage from "./pages/LoginPage";
 import SignUp from "./pages/SignUp";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import UserPage from "./pages/UserPage";
 
 function App() {
 
@@ -32,7 +33,7 @@ function App() {
         },
         {
           path:'/profile',
-          element:<UserProfile/>
+          element:<UserPage/>
         },
         {
           path:'/exercises',

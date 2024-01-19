@@ -39,15 +39,15 @@ function Exercise() {
         setQuize(false);
     }
 
-    const handleIndex=()=>{
+    const handleIndex = () => {
         setIdx((prevIdx) => prevIdx + 1);
 
         if (idx + 1 >= exercisesData.length) {
-          setQuize(true);
-          setIdx(0);
+            setQuize(true);
+            setIdx(0);
         }
     }
-    
+
 
     return (
         <div className='h-[100vh] p-3 '>
@@ -67,26 +67,26 @@ function Exercise() {
                             <button className='mt-3 p-3 border-2 border-[#D63484] w-[30%] m-auto text-xl font-bold text-[#D63484] hover:bg-[#D63484]
                          hover:text-white rounded' onClick={handleClick}>Start Test</button>
                         </div> :
-                        
-                            <div className='m-auto w-[50%] bg-white p-6 border-2 border-white rounded flex flex-col gap-2
-                              mt-4 shadow-lg'>
-                                <h2 className='text-3xl font-semibold mt-3'>{exercisesData[idx].question}</h2>
 
-                                <form className='flex flex-col ml-3 gap-3'>
-                                    <div className='flex gap-5 mt-3'>
-                                    <input type='radio' id='opt1' name='options'/>
+                        <div className='m-auto w-[50%] bg-white p-6 border-2 border-white rounded flex flex-col gap-2
+                              mt-4 shadow-lg'>
+                            <h2 className='text-3xl font-semibold mt-3'>{exercisesData[idx].question}</h2>
+
+                            <form className='flex flex-col ml-3 gap-3'>
+                                <div className='flex gap-5 mt-3'>
+                                    <input type='radio' id='opt1' name='options' />
                                     <label className='text-xl font-semibold' htmlFor='opt1'>{exercisesData[idx].options[0]}</label>
-                                    </div>
-                                    <div className='flex gap-5 mt-3'>
-                                    <input type='radio' id='opt2' name='options'/>
+                                </div>
+                                <div className='flex gap-5 mt-3'>
+                                    <input type='radio' id='opt2' name='options' />
                                     <label className='text-lg font-semibold' htmlFor='opt2'>{exercisesData[idx].options[1]}</label>
-                                    </div>
-                                   
-                                </form>
-                                <button className='mt-3 p-3 border-2 border-[#D63484] w-[30%] m-auto text-xl font-bold text-[#D63484] hover:bg-[#D63484]
+                                </div>
+
+                            </form>
+                            <button className='mt-3 p-3 border-2 border-[#D63484] w-[30%] m-auto text-xl font-bold text-[#D63484] hover:bg-[#D63484]
                         hover:text-white rounded' onClick={handleIndex}>Next</button>
-                            </div>
-        
+                        </div>
+
                 }
             </div>
         </div>
