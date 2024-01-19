@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 function LoginPage() {
     const handleSubmit=(e)=>{
@@ -14,9 +15,9 @@ function LoginPage() {
               <input type='password' placeholder='Your Password...' className='w-[80%] p-3 border-2 border-[#B6BBC4] rounded-md text-lg m-2'/>
               <button className='w-[80%] p-3 border-2 border-[#0766AD] bg-[#0766AD] text-white rounded-md text-xl m-2 font-semibold hover:bg-[#91C8E4] hover:text-black'>Login</button> 
           </form>
-          {/* <p><Link to="/signup"> */}
+          <Link to="/signup">
             <p className='text-center text-blue-700 mt-[-1rem] hover:text-[#0766AD] cursor-pointer'>Or SignUp instead</p>
-          {/* </Link></p> */}
+           </Link>
           </div>
       </div>
     )
