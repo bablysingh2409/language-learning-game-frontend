@@ -16,7 +16,7 @@ function Home() {
             </div>
              <div className='w-[40%] flex items-center'>
                 <div className='flex flex-col justify-center items-center gap-6'>
-                    <p className='text-2xl w-[60%] font-bold'>The Free ,Fun,and effective way to learn a language!</p>
+                    <p className='text-2xl w-[60%] font-bold'>The Free , Fun , and effective way to learn a language!</p>
                     <button className='w-[70%] bg-[#379237] text-white border-2 border-[#379237] p-3
                     text-lg font-semibold rounded hover:bg-[#54B435]' onClick={handleClick}>I ALREADY HAVE AN ACCOUNT</button>
                 </div>

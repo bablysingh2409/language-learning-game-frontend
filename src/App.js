@@ -1,3 +1,4 @@
+import Exercise from "./components/Exercise";
 import Language from "./components/Language";
 import Nav from "./components/Nav";
 import UserProfile from "./components/UserProfile";
@@ -32,6 +33,10 @@ function App() {
         {
           path:'/profile',
           element:<UserProfile/>
+        },
+        {
+          path:'/exercises',
+          element:<Exercise/>
         }
 
       ]

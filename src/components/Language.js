@@ -1,6 +1,12 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function Language() {
+  const navigate=useNavigate();
+
+    const handleClick=()=>{
+          navigate('/exercises')
+    }
     return (
         <div className=''>
             <div className='flex flex-col justify-center items-center p-4 gap-10 w-[80%] m-auto'>
@@ -8,7 +14,7 @@ function Language() {
                     <p className='text-4xl font-bold'>I want to learn...</p>
                 </div>
                 <div className='flex justify-evenly w-[90%] gap-4'>
-                    <div className='w-[100%] shadow-lg m-3 p-3 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110'>
+                    <div className='w-[100%] shadow-lg m-3 p-3 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110' onClick={handleClick}>
                         <div className='w-full p-6 flex items-center flex-col gap-3'>
                             <img src='https://img.freepik.com/free-photo/flag-united-kingdom_1401-252.jpg?w=900&t=st=1705659297~exp=1705659897~hmac=a7e803866b72466f68b4e24e0a86a4b539d68b53cdaece2d003c3c62b68be090'
                                 alt='english' className='w-[80%]' />
