@@ -21,7 +21,7 @@ function Nav() {
                                     <ul className='flex justify-around'>
                                         <li className='text-xl text-white font-semibold hover:text-[#053B50] '><Link to='/'>Home</Link></li>
                                         <li className='text-xl text-white font-semibold hover:text-[#053B50] '><Link to='/language'>Languages</Link></li>
-                                        <li className='text-xl text-white font-semibold hover:text-[#053B50] '><Link to=''>User Profile</Link></li>
+                                        <li className='text-xl text-white font-semibold hover:text-[#053B50] '><Link to='/profile'>User Profile</Link></li>
                                         <li className='text-xl text-white font-semibold hover:text-[#053B50] '><Link to=''>Logout</Link></li>
                                     </ul>
                                 </div> :
