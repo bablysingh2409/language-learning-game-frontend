@@ -1,8 +1,17 @@
 import React, { useState } from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import { Link, Outlet,useNavigate } from 'react-router-dom';
+import { useSelector ,useDispatch} from 'react-redux';
+import { userDetailSelector,actions } from '../redux/reducers/userDetailsReducer';
 
 function Nav() {
-    const [isLogin, setIsLogin] = useState(true);
+    const {isLogin}=useSelector(userDetailSelector);
+    const dispatch=useDispatch();
+    const navigate=useNavigate();
+
+    const handleLogOut=()=>{
+           dispatch(actions.logout()); 
+           navigate('/');
+    }
     return (
         <>
             <div className='h-[15vh] bg-[#0766AD] p-3'>
@@ -22,7 +31,7 @@ function Nav() {
                                         <li className='text-xl text-white font-semibold hover:text-[#053B50] '><Link to='/'>Home</Link></li>
                                         <li className='text-xl text-white font-semibold hover:text-[#053B50] '><Link to='/language'>Languages</Link></li>
                                         <li className='text-xl text-white font-semibold hover:text-[#053B50] '><Link to='/profile'>User Profile</Link></li>
-                                        <li className='text-xl text-white font-semibold hover:text-[#053B50] '><Link to=''>Logout</Link></li>
+                                        <li className='text-xl text-white font-semibold hover:text-[#053B50] cursor-pointer ' onClick={handleLogOut}>Logout</li>
                                     </ul>
                                 </div> :
                                 <Link to='/'><p className='text-xl text-white font-semibold hover:text-[#053B50] float-end mr-10'>Home</p></Link>
