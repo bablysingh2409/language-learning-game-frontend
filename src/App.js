@@ -1,3 +1,4 @@
+import Language from "./components/Language";
 import Nav from "./components/Nav";
 import Home from "./pages/Home";
 import LoginPage from "./pages/LoginPage";
@@ -22,7 +23,12 @@ function App() {
         {
           path: '/signup',
           element: <SignUp />
+        },
+        {
+          path:'/language',
+          element:<Language/>
         }
+
       ]
     }
   ])
