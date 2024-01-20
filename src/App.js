@@ -35,12 +35,11 @@ function App() {
           path:'/profile',
           element:<UserPage/>
         },
-        {
-          path:'/exercises',
-          element:<Exercise/>
-        }
-
       ]
+    },
+    {
+      path:'/exercises/:language',
+      element:<Exercise/>
     }
   ])
   return (

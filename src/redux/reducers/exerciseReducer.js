@@ -1,12 +1,10 @@
 import { createSlice,createAsyncThunk } from "@reduxjs/toolkit";
-import { login } from "../../sevices/auth";
-
+import { getExerciseByLanguage } from "../../sevices/userSevice";
 
 // Async thunk for fetching user data
-export const fetchExerciseDetails=createAsyncThunk( "exerciseDetails",async(userData)=>{
+export const fetchExerciseDetails=createAsyncThunk( "exerciseDetails",async(language)=>{
      try{
-       const data=await login(userData);
-       console.log(data)
+       const data=await getExerciseByLanguage(language);
        return data;
      }
      catch(err){
@@ -20,7 +18,6 @@ const exerciseSlice=createSlice({
 name:'userDetails',
 initialState:{
     exercises:[],
-    isLogin:false,
     loading:false,
     error:null
 },
@@ -35,7 +32,7 @@ extraReducers:(builder)=>{
     .addCase(fetchExerciseDetails.fulfilled,(state,action)=>{
         state.loading=false;
         state.exercises=action.payload;
-        state.isLogin=true;
+        
     })
     .addCase(fetchExerciseDetails.rejected,(state,action)=>{
         state.loading=false;
@@ -45,6 +42,5 @@ extraReducers:(builder)=>{
 })
 
 
-export const userDetailsReducer=userDetailsSlice.reducer;
-export const userDetailSelector=(state)=>state.userDetailsReducer;
-export const actions=userDetailsSlice.actions;
+export const exerciseDetailsReducer=exerciseSlice.reducer;
+export const exerciseDetailSelector=(state)=>state.exerciseDetailsReducer   ;

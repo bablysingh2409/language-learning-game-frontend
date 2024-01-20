@@ -9,7 +9,7 @@ function UserPage() {
     const [selectedTab, setSelectedTab] = useState('profile');
 
 const handleTab=(language)=>{
-    console.log(language)
+    
      setSelectedLanguage(language);
      setSelectedTab('leaderBoard');
      setIsOpen(false)

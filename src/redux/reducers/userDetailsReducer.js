@@ -28,6 +28,9 @@ reducers: {
     logout: (state) => {
       state.isLogin = false;
       state.user = [];
+    },
+    updatedScore:(state,action)=>{
+        state.user.scores=action.payload.scores;
     }
 },
 extraReducers:(builder)=>{
