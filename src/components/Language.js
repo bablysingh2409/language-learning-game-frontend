@@ -2,6 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import { UseDispatch, useDispatch } from 'react-redux';
 import { fetchExerciseDetails } from '../redux/reducers/exerciseReducer';
+import Nav from './Nav';
 
 function Language() {
   const navigate=useNavigate();
@@ -13,6 +14,7 @@ function Language() {
           navigate(`/exercises/${language}`);
     }
     return (
+        
         <div className=''>
             <div className='flex flex-col justify-center items-center p-4 gap-10 w-[80%] m-auto'>
                 <div className='p-5 mt-3'>
@@ -43,6 +45,7 @@ function Language() {
                 </div>
             </div>
         </div>
+       
     )
 }
 

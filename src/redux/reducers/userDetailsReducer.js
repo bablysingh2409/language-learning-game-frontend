@@ -14,7 +14,6 @@ export const fetchUserDetails=createAsyncThunk( "userDetails",async(userData)=>{
 }   )
 
 
-
 const userDetailsSlice=createSlice({
 name:'userDetails',
 initialState:{

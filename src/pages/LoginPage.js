@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
 import { Link,useNavigate } from 'react-router-dom';
 import {  useDispatch } from 'react-redux';
-import { fetchUserDetails } from '../redux/reducers/userDetailsReducer';
+import { fetchUserDetails ,userDetailSelector} from '../redux/reducers/userDetailsReducer';
+import { useSelector } from 'react-redux';
 
 function LoginPage() {
     const [userData, setUserData] = useState({
         email: '',
         password: ''
     });
+    const {isLogin}=useSelector(userDetailSelector)
     const dispatch=useDispatch();
     const navigate=useNavigate();
 
@@ -19,9 +21,8 @@ function LoginPage() {
             email:'',
             password:''
         });
-        navigate('/Language')
-        
-
+         navigate('/Language');
+       
          
       }
 

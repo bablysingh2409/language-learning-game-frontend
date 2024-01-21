@@ -5,11 +5,14 @@ import UserProfile from "./components/UserProfile";
 import Home from "./pages/Home";
 import LoginPage from "./pages/LoginPage";
 import SignUp from "./pages/SignUp";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { Navigate, Route, RouterProvider, Routes, createBrowserRouter } from "react-router-dom";
 import UserPage from "./pages/UserPage";
+import { useSelector } from 'react-redux';
+import { userDetailSelector } from "./redux/reducers/userDetailsReducer";
+
 
 function App() {
-
+  const { isLogin } = useSelector(userDetailSelector);
   const router = createBrowserRouter([
     {
       path: '/',
@@ -21,31 +24,33 @@ function App() {
         },
         {
           path: '/login',
-          element: <LoginPage />
+          element: isLogin ? <Navigate to="/language" /> : <LoginPage />
         },
         {
           path: '/signup',
-          element: <SignUp />
+          element: isLogin ? <Navigate to="/language" /> : <SignUp />
         },
         {
-          path:'/language',
-          element:<Language/>
+          path: '/language',
+          element: isLogin ? <Language /> : <Navigate to="/" />
         },
         {
-          path:'/profile',
-          element:<UserPage/>
+          path: '/profile',
+          element: isLogin ? <UserPage /> : <Navigate to="/" />
         },
       ]
     },
     {
       path:'/exercises/:language',
       element:<Exercise/>
-    }
+    },
+    
   ])
   return (
     <RouterProvider router={router}>
-      <div className="w-full">
-      </div>
+      <Routes>
+        <Route path="/*" element={<Navigate to="/" />} />
+      </Routes>
     </RouterProvider>
   );
 }
