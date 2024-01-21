@@ -1,14 +1,10 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import LeaderBoard from './LeaderBoard';
 import { useDispatch,useSelector } from 'react-redux';
 import { userDetailSelector } from '../redux/reducers/userDetailsReducer';
 
 function UserProfile() {
-    const dispatch=useDispatch();
     const {user}=useSelector(userDetailSelector);
-    
-    
+
     return (
         <div className='w-[60%] p-3'>
                         <div className='flex flex-col justify-center m-auto w-[80%]'>

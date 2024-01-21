@@ -6,7 +6,6 @@ import { login } from "../../sevices/auth";
 export const fetchUserDetails=createAsyncThunk( "userDetails",async(userData)=>{
      try{
        const data=await login(userData);
-       console.log(data)
        return data;
      }
      catch(err){
@@ -31,7 +30,8 @@ reducers: {
     },
     updatedScore:(state,action)=>{
         state.user.scores=action.payload.scores;
-    }
+    },
+   
 },
 extraReducers:(builder)=>{
     builder
