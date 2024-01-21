@@ -14,7 +14,7 @@ function SignUp() {
         e.preventDefault();
         try {
             const res = await signup(userData);
-            if (res.status == 200) {
+            if (res.status === 200) {
                 setUserData({
                     name:'',
                     email:'',

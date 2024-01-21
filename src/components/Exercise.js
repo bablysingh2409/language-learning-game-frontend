@@ -27,13 +27,13 @@ function Exercise() {
 
     const handleIndex =async () => {
         const currentAns = userAnswer[idx];
-        if (exercises[idx].correctOption === currentAns && exercises[idx].difficulty == 'medium') {
+        if (exercises[idx].correctOption === currentAns && exercises[idx].difficulty === 'medium') {
             setScore((prev) => prev + 3);
         }
-        else if (exercises[idx].correctOption === currentAns && exercises[idx].difficulty == 'hard') {
+        else if (exercises[idx].correctOption === currentAns && exercises[idx].difficulty === 'hard') {
             setScore((prev) => prev + 5)
         }
-        else if (exercises[idx].correctOption === currentAns && exercises[idx].difficulty == 'easy') {
+        else if (exercises[idx].correctOption === currentAns && exercises[idx].difficulty === 'easy') {
             setScore((prev) => prev + 1)
         }
         else {
@@ -50,7 +50,7 @@ function Exercise() {
             setShowResult(true);
             setIdx(0);
            
-            const submitScore=await submitUserScore(data,user._id);
+            await submitUserScore(data,user._id);
             const getNewScore=await getUpdatedScore(user._id);
             dispatch(actions.updatedScore(getNewScore));
             

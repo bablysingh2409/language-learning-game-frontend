@@ -1,7 +1,6 @@
 import Exercise from "./components/Exercise";
 import Language from "./components/Language";
 import Nav from "./components/Nav";
-import UserProfile from "./components/UserProfile";
 import Home from "./pages/Home";
 import LoginPage from "./pages/LoginPage";
 import SignUp from "./pages/SignUp";

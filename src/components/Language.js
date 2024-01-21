@@ -1,8 +1,8 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
-import { UseDispatch, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { fetchExerciseDetails } from '../redux/reducers/exerciseReducer';
-import Nav from './Nav';
+
 
 function Language() {
   const navigate=useNavigate();
