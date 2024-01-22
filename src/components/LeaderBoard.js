@@ -1,26 +1,35 @@
 import React, { useState ,useEffect} from 'react'
 import { getLeaderBoard } from '../sevices/leaderBoard'
+import Loader from './Loader';
 
 function LeaderBoard({ language}) {
       const [topStudents,setTopStudents]=useState([]);
       const [isTopperExist,setIsTopperExist]=useState(false);
+      const [loading,setLoading]=useState(false);
 
 
       useEffect(() => {
         const fetchData = async () => {
             // Fetch leaderboard data when the component mounts or language changes
+            setLoading(true);
             try {
                 const data = await getLeaderBoard(language);
                 setTopStudents(data);
                 setIsTopperExist(true);
+                setLoading(false);
                 // Updating state based on the fetched data
             } catch (error) {
                 console.error("Error fetching LeaderBoard data:", error);
+                setLoading(false);
             }
         };
 
         fetchData();
     }, [language]);
+
+    if(loading){
+        return <Loader/>
+    }
 
     if (!isTopperExist || topStudents.length===0) {
         return <div className='flex flex-col gap-4 p-4 pr-5 '>
