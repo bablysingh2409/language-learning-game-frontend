@@ -5,10 +5,7 @@ module.exports = {
   ],
   darkMode: false,
   theme: {
-    colors: {
-      primary: '#3498db',
-      secondary: '#2ecc71',
-        },
+   
     extend: {
       animation: {
         bounce200: 'bounce 1s infinite 200ms',
