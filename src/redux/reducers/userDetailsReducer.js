@@ -30,6 +30,7 @@ reducers: {
     updatedScore:(state,action)=>{
         state.user.scores=action.payload.scores;
     },
+    
    
 },
 extraReducers:(builder)=>{

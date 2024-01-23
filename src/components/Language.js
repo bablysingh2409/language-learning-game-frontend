@@ -7,6 +7,7 @@ import { fetchExerciseDetails } from '../redux/reducers/exerciseReducer';
 function Language() {
   const navigate=useNavigate();
   const dispatch=useDispatch();
+  
 
     const handleClick=(language)=>{
           

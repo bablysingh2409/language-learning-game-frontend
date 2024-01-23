@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link,useNavigate } from 'react-router-dom';
 import {  useDispatch } from 'react-redux';
 import { fetchUserDetails} from '../redux/reducers/userDetailsReducer';
+import Loader from '../components/Loader';
 
 
 function LoginPage() {
@@ -9,24 +10,30 @@ function LoginPage() {
         email: '',
         password: ''
     });
+    const [loading,setLoading]=useState(false);
    
     const dispatch=useDispatch();
     const navigate=useNavigate();
 
-    const handleSubmit=(e)=>{
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        dispatch(fetchUserDetails(userData));
-        setUserData({
-            name:'',
-            email:'',
-            password:''
-        });
-         navigate('/Language');
-       
-         
-      }
+        setLoading(true);
 
-      
+        try {
+            // Dispatch the action and wait for it to complete
+           await dispatch(fetchUserDetails(userData));
+
+            // If successful, navigate to '/Language'
+            navigate('/Language');
+        } catch (error) {
+            console.error('Error logging in:', error);
+            setLoading(false)
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    
     const handleChange = (e) => {
         const { value, name } = e.target;
         setUserData({
@@ -34,6 +41,12 @@ function LoginPage() {
             [name]: value
         });
     }
+    if(loading){
+        return <div className='relative top-[5rem]'>
+        <Loader/>
+        </div>
+    }
+      
 
     return (
       <div className='w-[70%] p-3 m-auto'>

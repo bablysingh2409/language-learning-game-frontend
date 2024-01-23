@@ -1,9 +1,12 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { userDetailSelector } from '../redux/reducers/userDetailsReducer';
 
 
 function Home() {
     const navigate=useNavigate();
+    const {isLogin}=useSelector(userDetailSelector);
 
     const handleClick=()=>{
         navigate('/login')
@@ -18,9 +21,12 @@ function Home() {
              <div className='w-[40%] flex items-center'>
                 <div className='flex flex-col justify-center items-center gap-6'>
                     <p className='text-2xl w-[60%] font-bold'>The Free , Fun , and effective way to learn a language!</p>
+                    {!isLogin ?
                     <button className='w-[70%] bg-[#379237] text-white border-2 border-[#379237] p-3
-                    text-lg font-semibold rounded hover:bg-[#54B435]' onClick={handleClick}>I ALREADY HAVE AN ACCOUNT</button>
-                </div>
+                    text-lg font-semibold rounded hover:bg-[#54B435]' onClick={handleClick}>I ALREADY HAVE AN ACCOUNT</button>:
+                    <button className='w-[70%] bg-[#379237] text-white border-2 border-[#379237] p-3
+                    text-lg font-semibold rounded hover:bg-[#54B435]' onClick={handleClick}>Get Started</button>
+                    }</div>
              </div>
         </div>
     </div>
